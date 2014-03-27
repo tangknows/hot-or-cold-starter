@@ -61,21 +61,20 @@ $(document).ready(function(){
 	});
 	
 	function validateButton() {
-		if ($("userGuess").text() == "") {
-			alert("yo")
-		}
-	}
-	
-	$("#guessButton").on('click', function(){
-		if ((parseInt($("#userGuess").val())) === "") {
-			alert("Please Enter a numerical value");
-			return;
-			}
-		else {
+		if ($("#userGuess").val().length > 0) {
 			calculate();
 			guessCount();
-		}	
-	});
+			}
+			else {
+			$("#feedback").text("Fool, put in a number!");
+			}
+	}
+	
+	$("#guessButton").on('click', function() {
+		validateButton();
+		
+	
+	});	
 	
 
 });
